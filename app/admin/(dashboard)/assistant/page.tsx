@@ -9,7 +9,7 @@ export default async function AssistantPage() {
   if (!admin) redirect('/admin/login')
 
   return (
-    <div className="space-y-6">
+    <div className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6">
       <div>
         <h1 className="font-serif text-3xl font-semibold flex items-center gap-3">
           <Bot className="w-8 h-8 text-primary" />
@@ -60,7 +60,7 @@ export default async function AssistantPage() {
       </div>
 
       {/* AI Chat Interface */}
-      <Card className="min-h-[600px] flex flex-col">
+      <Card className="min-h-[480px] sm:min-h-[600px] flex flex-col">
         <CardHeader>
           <CardTitle className="font-serif">Chat with Your Business Partner</CardTitle>
           <CardDescription>

@@ -9,7 +9,7 @@ export default async function TestimonialsPage() {
   const testimonials = await getTestimonials()
 
   return (
-    <div className="p-8">
+    <div className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
       <div className="mb-8">
         <h1 className="font-serif text-3xl font-bold">Testimonials</h1>
         <p className="text-muted-foreground">Manage customer reviews and feedback</p>

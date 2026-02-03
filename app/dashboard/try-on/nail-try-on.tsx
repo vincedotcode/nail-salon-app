@@ -123,7 +123,7 @@ export function NailTryOn({ userId }: { userId: number }) {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {NAIL_TEMPLATES.map((template) => (
                 <motion.button
                   key={template.id}
@@ -224,7 +224,7 @@ export function NailTryOn({ userId }: { userId: number }) {
                     className="object-cover"
                   />
                 </div>
-                <div className="flex gap-3">
+                <div className="flex flex-col sm:flex-row gap-3">
                   <Button 
                     onClick={handleSave} 
                     disabled={isSaving}

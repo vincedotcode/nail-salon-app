@@ -41,7 +41,7 @@ export default async function TryOnPage() {
         </div>
 
         <Tabs defaultValue="try-on" className="space-y-6">
-          <TabsList>
+          <TabsList className="grid w-full max-w-md grid-cols-2">
             <TabsTrigger value="try-on" className="gap-2">
               <Sparkles className="w-4 h-4" />
               Try On Designs

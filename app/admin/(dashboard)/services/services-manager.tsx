@@ -71,7 +71,7 @@ export function ServicesManager({ services }: { services: Service[] }) {
                 rows={3}
               />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="price">Price (Rs)</Label>
                 <Input id="price" name="price" type="number" placeholder="1000" required min="0" step="50" />
@@ -116,7 +116,7 @@ export function ServicesManager({ services }: { services: Service[] }) {
                   key={service.id}
                   className={`p-4 rounded-xl border ${service.is_active ? 'border-border bg-card' : 'border-border/50 bg-secondary/30 opacity-60'}`}
                 >
-                  <div className="flex items-start justify-between">
+                  <div className="flex flex-col sm:flex-row sm:items-start gap-3">
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
                         <h4 className="font-semibold">{service.name}</h4>
@@ -139,7 +139,7 @@ export function ServicesManager({ services }: { services: Service[] }) {
                         </span>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 sm:ml-auto">
                       <span className="text-xs text-muted-foreground">
                         {service.is_active ? 'Active' : 'Inactive'}
                       </span>

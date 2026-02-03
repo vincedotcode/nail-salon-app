@@ -109,14 +109,14 @@ export default function CreateInvoicePage() {
 
   if (loading) {
     return (
-      <div className="p-8 flex items-center justify-center">
+      <div className="px-4 sm:px-6 lg:px-8 py-12 flex items-center justify-center">
         <Loader2 className="w-8 h-8 animate-spin text-primary" />
       </div>
     )
   }
 
   return (
-    <div className="p-8 max-w-2xl">
+    <div className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8 max-w-2xl">
       <Link href="/admin/invoices" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-6">
         <ArrowLeft className="w-4 h-4" />
         Back to Invoices
@@ -187,7 +187,7 @@ export default function CreateInvoicePage() {
               />
             </div>
 
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Button type="submit" disabled={submitting}>
                 {submitting ? (
                   <>

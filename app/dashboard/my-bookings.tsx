@@ -89,7 +89,7 @@ export function MyBookings({ bookings }: { bookings: Booking[] }) {
                         </span>
                       </div>
                       <div className="flex-1 p-4">
-                        <div className="flex items-start justify-between">
+                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                           <div>
                             <h4 className="font-semibold">{booking.service_name}</h4>
                             <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
@@ -108,7 +108,7 @@ export function MyBookings({ bookings }: { bookings: Booking[] }) {
                               </p>
                             )}
                           </div>
-                          <div className="flex flex-col items-end gap-2">
+                          <div className="flex flex-col items-start sm:items-end gap-2">
                             <Badge variant={status.variant} className="gap-1">
                               <StatusIcon className="w-3 h-3" />
                               {status.label}
@@ -150,7 +150,7 @@ export function MyBookings({ bookings }: { bookings: Booking[] }) {
               return (
                 <div 
                   key={booking.id} 
-                  className="flex items-center justify-between p-4 rounded-xl bg-secondary/30 border border-border/50"
+                  className="flex flex-col sm:flex-row sm:items-center gap-3 p-4 rounded-xl bg-secondary/30 border border-border/50"
                 >
                   <div className="flex items-center gap-4">
                     <div className="text-center">

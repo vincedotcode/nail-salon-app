@@ -165,9 +165,9 @@ export function InvoiceDetail({ invoice }: { invoice: Invoice }) {
         Back to Invoices
       </Link>
 
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <h1 className="font-serif text-2xl font-bold">Invoice #{invoice.id.toString().padStart(5, '0')}</h1>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           {invoice.phone && (
             <Button variant="outline" onClick={sendWhatsApp}>
               <MessageCircle className="w-4 h-4 mr-2" />
@@ -192,9 +192,9 @@ export function InvoiceDetail({ invoice }: { invoice: Invoice }) {
       </div>
 
       <Card ref={printRef}>
-        <CardContent className="p-8">
+        <CardContent className="p-6 sm:p-8">
           {/* Header */}
-          <div className="flex justify-between items-start mb-8 pb-6 border-b">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-8 pb-6 border-b">
             <div>
               <Logo size="lg" />
               <p className="text-sm text-muted-foreground mt-2">
@@ -202,7 +202,7 @@ export function InvoiceDetail({ invoice }: { invoice: Invoice }) {
                 Mauritius
               </p>
             </div>
-            <div className="text-right">
+            <div className="text-left sm:text-right">
               <h2 className="font-serif text-2xl font-bold text-primary mb-2">INVOICE</h2>
               <p className="text-lg font-medium">#{invoice.id.toString().padStart(5, '0')}</p>
               <p className="text-sm text-muted-foreground">
@@ -227,33 +227,35 @@ export function InvoiceDetail({ invoice }: { invoice: Invoice }) {
           </div>
 
           {/* Items */}
-          <table className="w-full mb-8">
-            <thead>
-              <tr className="border-b-2 border-primary/20">
-                <th className="text-left py-3 px-2 bg-secondary/50">Description</th>
-                <th className="text-left py-3 px-2 bg-secondary/50">Date</th>
-                <th className="text-right py-3 px-2 bg-secondary/50">Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-b">
-                <td className="py-4 px-2">{invoice.service_name || 'Nail Service'}</td>
-                <td className="py-4 px-2">
-                  {invoice.booking_date 
-                    ? new Date(invoice.booking_date).toLocaleDateString('en-US', { 
-                        year: 'numeric', 
-                        month: 'short', 
-                        day: 'numeric' 
-                      })
-                    : '-'
-                  }
-                </td>
-                <td className="py-4 px-2 text-right font-medium">
-                  Rs {Number(invoice.amount).toLocaleString()}
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[520px] mb-8">
+              <thead>
+                <tr className="border-b-2 border-primary/20">
+                  <th className="text-left py-3 px-2 bg-secondary/50">Description</th>
+                  <th className="text-left py-3 px-2 bg-secondary/50">Date</th>
+                  <th className="text-right py-3 px-2 bg-secondary/50">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="py-4 px-2">{invoice.service_name || 'Nail Service'}</td>
+                  <td className="py-4 px-2">
+                    {invoice.booking_date 
+                      ? new Date(invoice.booking_date).toLocaleDateString('en-US', { 
+                          year: 'numeric', 
+                          month: 'short', 
+                          day: 'numeric' 
+                        })
+                      : '-'
+                    }
+                  </td>
+                  <td className="py-4 px-2 text-right font-medium">
+                    Rs {Number(invoice.amount).toLocaleString()}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
           {/* Total */}
           <div className="flex justify-end mb-8">

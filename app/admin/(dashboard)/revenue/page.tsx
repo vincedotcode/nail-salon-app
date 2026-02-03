@@ -74,7 +74,7 @@ export default async function RevenuePage() {
   const stats = await getRevenueStats()
 
   return (
-    <div className="p-8">
+    <div className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
       <div className="mb-8">
         <h1 className="font-serif text-3xl font-bold">Revenue Dashboard</h1>
         <p className="text-muted-foreground">Track your business performance and earnings</p>
@@ -167,8 +167,8 @@ export default async function RevenuePage() {
                 {stats.monthlyRevenue.map((item: any, index: number) => (
                   <div key={index} className="flex items-center justify-between">
                     <span className="text-sm font-medium">{item.month}</span>
-                    <div className="flex items-center gap-4">
-                      <div className="w-48 h-3 bg-secondary rounded-full overflow-hidden">
+                    <div className="flex flex-wrap items-center gap-4">
+                      <div className="w-32 sm:w-48 h-3 bg-secondary rounded-full overflow-hidden">
                         <div 
                           className="h-full bg-primary rounded-full"
                           style={{ 
@@ -201,7 +201,7 @@ export default async function RevenuePage() {
                 {stats.topServices.map((service: any, index: number) => (
                   <div 
                     key={index}
-                    className="flex items-center justify-between p-4 rounded-xl bg-secondary/50"
+                    className="flex flex-col sm:flex-row sm:items-center gap-3 p-4 rounded-xl bg-secondary/50"
                   >
                     <div>
                       <h4 className="font-medium">{service.name}</h4>
@@ -209,7 +209,7 @@ export default async function RevenuePage() {
                         {service.bookings} bookings
                       </p>
                     </div>
-                    <span className="font-serif font-semibold text-primary">
+                    <span className="font-serif font-semibold text-primary sm:ml-auto">
                       Rs {Number(service.revenue || 0).toLocaleString()}
                     </span>
                   </div>

@@ -23,7 +23,7 @@ export default async function InvoiceDetailPage({ params }: { params: Promise<{ 
   }
 
   return (
-    <div className="p-8">
+    <div className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
       <InvoiceDetail invoice={invoice} />
     </div>
   )

@@ -54,7 +54,7 @@ export function VacationsManager({ vacations }: { vacations: Vacation[] }) {
         </CardHeader>
         <CardContent>
           <form action={handleAdd} className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="startDate">Start Date</Label>
                 <Input 
@@ -112,7 +112,7 @@ export function VacationsManager({ vacations }: { vacations: Vacation[] }) {
                 return (
                   <div 
                     key={vacation.id} 
-                    className="flex items-center justify-between p-4 rounded-xl bg-secondary/50"
+                    className="flex flex-col sm:flex-row sm:items-center gap-3 p-4 rounded-xl bg-secondary/50"
                   >
                     <div>
                       <div className="flex items-center gap-2 font-medium">
@@ -127,9 +127,9 @@ export function VacationsManager({ vacations }: { vacations: Vacation[] }) {
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="text-destructive hover:text-destructive"
                       onClick={() => handleDelete(vacation.id)}
                       disabled={deletingId === vacation.id}
+                      className="text-destructive hover:text-destructive sm:ml-auto"
                     >
                       {deletingId === vacation.id ? (
                         <Loader2 className="w-4 h-4 animate-spin" />

@@ -108,17 +108,19 @@ export function BlockedDaysManager({ workingHours, vacations }: { workingHours: 
         </CardHeader>
         <CardContent className="space-y-4">
           {workingHours.map((wh) => (
-            <div key={wh.day_of_week} className="flex items-center gap-4 p-3 rounded-lg bg-secondary/30">
-              <Switch
-                checked={wh.is_active}
-                onCheckedChange={() => handleWorkingHoursToggle(wh.day_of_week, wh)}
-                disabled={loading}
-              />
-              <span className={`font-medium w-24 ${!wh.is_active ? 'text-muted-foreground' : ''}`}>
-                {DAY_NAMES[wh.day_of_week]}
-              </span>
+            <div key={wh.day_of_week} className="flex flex-col sm:flex-row sm:items-center gap-3 p-3 rounded-lg bg-secondary/30">
+              <div className="flex items-center gap-3">
+                <Switch
+                  checked={wh.is_active}
+                  onCheckedChange={() => handleWorkingHoursToggle(wh.day_of_week, wh)}
+                  disabled={loading}
+                />
+                <span className={`font-medium w-24 ${!wh.is_active ? 'text-muted-foreground' : ''}`}>
+                  {DAY_NAMES[wh.day_of_week]}
+                </span>
+              </div>
               {wh.is_active && (
-                <div className="flex items-center gap-2 flex-1">
+                <div className="flex flex-wrap items-center gap-2 sm:ml-auto">
                   <Input
                     type="time"
                     value={wh.start_time?.slice(0, 5)}
@@ -137,7 +139,7 @@ export function BlockedDaysManager({ workingHours, vacations }: { workingHours: 
                 </div>
               )}
               {!wh.is_active && (
-                <span className="text-muted-foreground text-sm">Day off</span>
+                <span className="text-muted-foreground text-sm sm:ml-auto">Day off</span>
               )}
             </div>
           ))}
@@ -156,7 +158,7 @@ export function BlockedDaysManager({ workingHours, vacations }: { workingHours: 
         <CardContent className="space-y-6">
           {/* Add New */}
           <form onSubmit={handleAddVacation} className="space-y-4 p-4 rounded-lg border border-dashed border-border">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label>Start Date</Label>
                 <Input
@@ -196,7 +198,7 @@ export function BlockedDaysManager({ workingHours, vacations }: { workingHours: 
               <p className="text-sm text-muted-foreground text-center py-4">No upcoming days off scheduled</p>
             ) : (
               vacations.map((v) => (
-                <div key={v.id} className="flex items-center justify-between p-3 rounded-lg bg-secondary/30">
+                <div key={v.id} className="flex flex-col sm:flex-row sm:items-center gap-3 p-3 rounded-lg bg-secondary/30">
                   <div className="flex items-center gap-3">
                     <Calendar className="w-4 h-4 text-primary" />
                     <div>
@@ -214,7 +216,7 @@ export function BlockedDaysManager({ workingHours, vacations }: { workingHours: 
                     size="icon"
                     onClick={() => handleDeleteVacation(v.id)}
                     disabled={loading}
-                    className="text-destructive hover:text-destructive"
+                    className="text-destructive hover:text-destructive sm:ml-auto"
                   >
                     <Trash2 className="w-4 h-4" />
                   </Button>

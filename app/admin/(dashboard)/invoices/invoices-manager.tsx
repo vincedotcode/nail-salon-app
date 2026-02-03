@@ -148,7 +148,7 @@ export function InvoicesManager({
               {pendingBookings.map(booking => (
                 <div 
                   key={booking.id}
-                  className="flex items-center justify-between p-4 rounded-xl bg-secondary/50"
+                  className="flex flex-col sm:flex-row sm:items-center gap-4 p-4 rounded-xl bg-secondary/50"
                 >
                   <div>
                     <h4 className="font-medium">{booking.full_name}</h4>
@@ -162,6 +162,7 @@ export function InvoicesManager({
                   <Button
                     onClick={() => handleCreateInvoice(booking)}
                     disabled={creatingId === booking.id}
+                    className="self-start sm:self-auto"
                   >
                     {creatingId === booking.id ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
@@ -181,7 +182,7 @@ export function InvoicesManager({
 
       {/* Invoices List */}
       <Card>
-        <CardHeader className="flex flex-row items-center justify-between">
+        <CardHeader className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <CardTitle className="flex items-center gap-2 font-serif">
             <Receipt className="w-5 h-5 text-primary" />
             All Invoices

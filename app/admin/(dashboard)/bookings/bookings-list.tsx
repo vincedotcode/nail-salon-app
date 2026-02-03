@@ -163,7 +163,7 @@ export function BookingsList({ bookings }: { bookings: Booking[] }) {
               <CardContent className="p-6">
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                   <div className="flex-1">
-                    <div className="flex items-start justify-between mb-2">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                       <div>
                         <h3 className="font-semibold text-lg">{booking.full_name}</h3>
                         <p className="text-primary font-medium">{booking.service_name}</p>

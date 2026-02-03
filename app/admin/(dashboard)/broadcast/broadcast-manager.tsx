@@ -163,7 +163,7 @@ export function BroadcastManager({
               <div className="space-y-3">
                 {history.slice(0, 5).map(item => (
                   <div key={item.id} className="p-3 rounded-lg bg-secondary/50 text-sm">
-                    <div className="flex items-center justify-between mb-1">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1">
                       <span className="font-medium">{item.title}</span>
                       <span className="text-xs text-muted-foreground">
                         {new Date(item.created_at).toLocaleDateString()}
@@ -181,7 +181,7 @@ export function BroadcastManager({
       {/* Select Recipients */}
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center justify-between">
+          <CardTitle className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <span className="flex items-center gap-2 font-serif">
               <Users className="w-5 h-5 text-primary" />
               Select Recipients

@@ -58,7 +58,7 @@ export function AIChatInterface() {
   }
 
   return (
-    <div className="flex flex-col h-[500px]">
+    <div className="flex flex-col h-[420px] sm:h-[500px]">
       <ScrollArea ref={scrollRef} className="flex-1 pr-4">
         {messages.length === 0 ? (
           <div className="h-full flex flex-col items-center justify-center text-center">

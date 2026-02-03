@@ -1,7 +1,7 @@
 import React from "react"
 import { redirect } from 'next/navigation'
 import { getAdmin } from '@/lib/auth'
-import { AdminSidebar } from './admin-sidebar'
+import { AdminMobileNav, AdminSidebar } from './admin-sidebar'
 
 export default async function AdminDashboardLayout({
   children,
@@ -15,11 +15,14 @@ export default async function AdminDashboardLayout({
   }
 
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen bg-background lg:flex">
       <AdminSidebar admin={admin} />
-      <main className="flex-1 bg-background overflow-auto">
-        {children}
-      </main>
+      <div className="flex min-w-0 flex-1 flex-col">
+        <AdminMobileNav admin={admin} />
+        <main className="flex-1 min-w-0 bg-background">
+          {children}
+        </main>
+      </div>
     </div>
   )
 }

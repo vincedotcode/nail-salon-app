@@ -34,7 +34,7 @@ export default async function AdminDashboardPage() {
   const stats = await getDashboardStats()
 
   return (
-    <div className="p-8">
+    <div className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
       <div className="mb-8">
         <h1 className="font-serif text-3xl font-bold">Dashboard</h1>
         <p className="text-muted-foreground">Welcome back, Diya! Here&apos;s your salon overview.</p>
@@ -102,7 +102,7 @@ export default async function AdminDashboardPage() {
           {stats.todayBookings.length > 0 ? (
             <div className="space-y-4">
               {stats.todayBookings.map((booking: { id: number; booking_time: string; full_name: string; phone: string; service_name: string; status: string }) => (
-                <div key={booking.id} className="flex items-center justify-between p-4 rounded-xl bg-secondary/50">
+                <div key={booking.id} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-4 rounded-xl bg-secondary/50">
                   <div className="flex items-center gap-4">
                     <div className="text-center bg-primary/10 px-3 py-2 rounded-lg">
                       <span className="text-lg font-bold font-serif text-primary">

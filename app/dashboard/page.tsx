@@ -65,7 +65,7 @@ export default async function DashboardPage() {
         </div>
 
         <Tabs defaultValue="book" className="space-y-8">
-          <TabsList className="grid w-full max-w-md grid-cols-3">
+          <TabsList className="grid w-full max-w-full sm:max-w-md grid-cols-3">
             <TabsTrigger value="book" className="gap-2">
               <Calendar className="w-4 h-4" />
               Book
