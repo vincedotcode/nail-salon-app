@@ -12,6 +12,7 @@ const navLinks = [
   { href: '/#gallery', label: 'Gallery' },
   { href: '/#testimonials', label: 'Testimonials' },
   { href: '/#contact', label: 'Contact' },
+  { href: '/download', label: 'Download' },
 ]
 
 export function Header({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
