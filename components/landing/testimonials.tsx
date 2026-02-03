@@ -12,10 +12,15 @@ interface Testimonial {
 }
 
 async function getTestimonials(): Promise<Testimonial[]> {
-  const testimonials = await sql`
-    SELECT * FROM testimonials WHERE is_approved = true ORDER BY created_at DESC LIMIT 10
-  `
-  return testimonials as Testimonial[]
+  try {
+    const testimonials = await sql`
+      SELECT * FROM testimonials WHERE is_approved = true ORDER BY created_at DESC LIMIT 10
+    `
+    return testimonials as Testimonial[]
+  } catch (error) {
+    console.error('Failed to fetch testimonials:', error)
+    return []
+  }
 }
 
 export async function Testimonials() {
