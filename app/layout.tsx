@@ -3,6 +3,8 @@ import type { Metadata } from 'next'
 import { Playfair_Display, Lato } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { Toaster } from '@/components/ui/sonner'
+import { PwaServiceWorker } from '@/components/pwa-service-worker'
+import { PwaInstallDrawer } from '@/components/pwa-install-drawer'
 import './globals.css'
 
 const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-serif' });
@@ -42,6 +44,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${playfair.variable} ${lato.variable} font-sans antialiased`}>
         {children}
+        <PwaServiceWorker />
+        <PwaInstallDrawer />
         <Toaster />
         <Analytics />
       </body>
