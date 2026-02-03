@@ -1,0 +1,35 @@
+import React from "react"
+import type { Metadata } from 'next'
+import { Playfair_Display, Lato } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
+import { Toaster } from '@/components/ui/sonner'
+import './globals.css'
+
+const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-serif' });
+const lato = Lato({ weight: ['300', '400', '700'], subsets: ["latin"], variable: '--font-sans' });
+
+export const metadata: Metadata = {
+  title: 'DS Nails | Premium Nail Salon in Quatre Bornes',
+  description: 'Experience luxury nail care at DS Nails. Home-based nail salon in Gangamah Avenue, Quatre Bornes, Mauritius. Book your appointment today!',
+  keywords: ['nail salon', 'manicure', 'pedicure', 'nail art', 'Quatre Bornes', 'Mauritius'],
+  icons: {
+    icon: '/favicon.svg',
+  },
+    generator: 'v0.app'
+}
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="en">
+      <body className={`${playfair.variable} ${lato.variable} font-sans antialiased`}>
+        {children}
+        <Toaster />
+        <Analytics />
+      </body>
+    </html>
+  )
+}
