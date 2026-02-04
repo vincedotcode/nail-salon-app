@@ -39,7 +39,12 @@ async function getUserBookings(userId: number) {
   `
 }
 
-export default async function DashboardPage() {
+export default async function DashboardPage({
+  searchParams,
+}: {
+  searchParams?: { tab?: string }
+}) {
+  const tabParam = searchParams?.tab
   const user = await getUser()
   
   if (!user) {
@@ -64,7 +69,7 @@ export default async function DashboardPage() {
           <p className="text-muted-foreground mt-1">Manage your appointments and book new sessions</p>
         </div>
 
-        <Tabs defaultValue="book" className="space-y-8">
+        <Tabs defaultValue={tabParam === 'bookings' ? 'bookings' : 'book'} className="space-y-8">
           <TabsList className="grid w-full max-w-full sm:max-w-md grid-cols-3">
             <TabsTrigger value="book" className="gap-2">
               <Calendar className="w-4 h-4" />
