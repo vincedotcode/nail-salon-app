@@ -1,5 +1,5 @@
-import React from "react"
-import type { Metadata } from 'next'
+import React, { Suspense } from "react"
+import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Lato } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { Toaster } from '@/components/ui/sonner'
@@ -16,7 +16,6 @@ export const metadata: Metadata = {
   description: 'Experience luxury nail care at DS Nails. Home-based nail salon in Gangamah Avenue, Quatre Bornes, Mauritius. Book your appointment today!',
   keywords: ['nail salon', 'manicure', 'pedicure', 'nail art', 'Quatre Bornes', 'Mauritius'],
   manifest: '/manifest.webmanifest',
-  themeColor: '#d58d9c',
   appleWebApp: {
     capable: true,
     title: 'DS Nails',
@@ -36,6 +35,10 @@ export const metadata: Metadata = {
   generator: 'v0.app'
 }
 
+export const viewport: Viewport = {
+  themeColor: '#d58d9c',
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -45,7 +48,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${playfair.variable} ${lato.variable} font-sans antialiased`}>
         {children}
-        <MobileBottomNav />
+        <Suspense fallback={null}>
+          <MobileBottomNav />
+        </Suspense>
         <PwaServiceWorker />
         <PwaInstallDrawer />
         <Toaster />
